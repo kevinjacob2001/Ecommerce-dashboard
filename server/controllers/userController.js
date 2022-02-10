@@ -27,6 +27,18 @@ exports.view = (req, res) => {
             else console.log(err)
 console.log(rows)
         })
-
     })
 }
+//node js- js
+
+
+//1:03:38
+
+//add production
+
+//update production
+
+//delete
+
+
+//5 table + renaming + UI
