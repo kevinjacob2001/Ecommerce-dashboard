@@ -2,10 +2,10 @@
   <thead class="">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
+      <th scope="col">Product Name:</th>
+      <th scope="col">Manufacturer:</th>
+      <th scope="col">Quantity:</th>
+      <th scope="col">Category:</th>
       <th scope="col" class="text-end">Action</th>
     </tr>
   </thead>
@@ -13,12 +13,12 @@
 
   {{#each rows}}
     
-    <tr>
+    <tr >
       <th scope="row">{{this.id}}</th>
-      <td>{{this.first_name}}</td>
-      <td>{{this.last_name}}</td>
-      <td>{{this.email}}</td>
-      <td>{{this.phone}}</td>
+      <td>{{this.product_name}}</td>
+      <td>{{this.product_manufacturer}}</td>
+      <td>{{this.product_quantity}}</td>
+      <td>{{this.product_category}}</td>
       <td class="text-end">
           <a href="#" type="button" class="btn btn-light btn-small btn-view">View</a>
           <a href="#" type="button" class="btn btn-light btn-small btn-edit">Edit</a>
