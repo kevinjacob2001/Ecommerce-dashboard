@@ -1,0 +1,37 @@
+
+  <div class="d-flex justify-content-end">
+    <a href="/add" type="button" class="btn btn-primary align-self-right">Add</a>
+  </div>
+<br>
+
+
+<table class="table">
+  <thead class="">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Manufacturer</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Country of Origin</th>
+      <th scope="col" class="text-end">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {{#each rows}}
+    
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.Name}}</td>
+      <td>{{this.Manufacturer}}</td>
+      <td>{{this.Quantity}}</td>
+      <td>{{this.CountryOfOrigin}}</td>
+      <td class="text-end">
+        
+          <a href="#" type="button" class="btn btn-light btn-small btn-edit">Edit</a>
+          <a href="#" type="button" class="btn btn-light btn-small btn-delete">Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
