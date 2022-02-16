@@ -3,7 +3,10 @@ const router=express.Router();
 const userController=require('../controllers/userController')
 
 //Create Read update del
-router.get('/',userController.view)
+router.get('/',userController.view);
+router.get('/add',userController.addProductsForm);
+router.post('/add',userController.add);
+
 
 /*
 router.get('/inactive/:id',userController.inactiveProducts)
