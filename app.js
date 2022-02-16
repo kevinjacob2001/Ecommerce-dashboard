@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 //to parse application/json
 app.use(bodyParser.json())
 //static files
-app.use(express.static('public'));
+app.use(express.static(__dirname+'/public'));
 //templating engine
 app.engine('hbs',exphbs.engine({extname:'.hbs'}))
 
