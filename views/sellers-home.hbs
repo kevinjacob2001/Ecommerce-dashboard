@@ -1,0 +1,38 @@
+<h1>Sellers' Section</h1>  <div class="d-flex justify-content-end">
+    <a href="/seller/addSeller" type="button" class="btn btn-primary align-self-right">Add</a>
+  </div>
+<table class="table">
+  <thead class="">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Seller name</th>
+      <th scope="col">Seller location</th>
+      <th scope="col">Established Year</th>
+      <th scope="col">Seller details:</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {{#each rows}}
+    <tr >
+      <th scope="row">{{this.Id}}</th>
+      <td>{{this.Name}}</td>
+      <td>{{this.Location}}</td>
+      <td>{{this.Est_Year}}</td>
+      <td>{{this.Details}}</td>
+      <!--
+      <td>
+        <a type="button" href="/inactive/{{this.id}}">Inactive</a>
+
+        </select></td>
+
+        -->
+      <td class="text-end">
+          <a href="#" type="button" class="btn btn-light btn-small btn-view">View</a>
+          <a href="#" type="button" class="btn btn-light btn-small btn-edit">Edit</a>
+          <a href="seller/{{this.Id}}" type="button" class="btn btn-light btn-small btn-delete">Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
