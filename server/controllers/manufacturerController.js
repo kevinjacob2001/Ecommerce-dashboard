@@ -10,17 +10,13 @@ let connection = mysql.createConnection({
 
 //View users
 exports.view = (req, res) => {
-
     //cONNECT to DB_NAME
-
         connection.query('SELECT * FROM manufacturer', (err, rows) => {
             //when donw with connection release it
-        
             if (!err) {
                 res.render('manufacturer-home',{rows})
             }
         })
-   
 }
 
 
@@ -31,13 +27,11 @@ exports.addManufacturerForm=(req,res)=>{
 // Add new manufacturer
 exports.add = (req, res) => {
     const {manufacturer_name,manufacturer_location,manufacturer_details} = req.body;
-
     // User the connection
     connection.query('INSERT INTO manufacturer SET manufacturer_name = ?, manufacturer_location = ?, manufacturer_details = ?', [manufacturer_name,manufacturer_location,manufacturer_details], (err, rows) => {
       if (!err) {
         res.redirect('/manufacturer') 
-        res.render('manufacturer-home', {rows});
-         
+        res.render('manufacturer-home', {rows});     
       }
       else console.log(err);
         console.log('The data from manufacturer table: \n', rows);
