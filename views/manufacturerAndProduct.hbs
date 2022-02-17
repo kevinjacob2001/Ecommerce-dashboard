@@ -1,0 +1,36 @@
+<h1>Manufacturers' + Products' Section</h1>  <div class="d-flex justify-content-end">
+  
+  </div>
+<table class="table">
+  <thead class="">
+    <tr>
+      <th scope="col">Manufacturer name:</th>
+      <th scope="col">Products:</th>
+      <th scope="col">Manufacturer location:</th>
+      <th scope="col">Manufacturer details:</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {{#each rows}}
+    <tr >
+      <td>{{this.manufacturer_name}}</td>
+      <td>{{this.product_name}}</td>
+      <td>{{this.manufacturer_location}}</td>
+      <td>{{this.manufacturer_details}}</td>
+
+
+      <!--
+      <td>
+        <a type="button" href="/inactive/{{this.id}}">Inactive</a>
+
+        </select></td>
+
+        -->
+
+
+     
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

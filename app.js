@@ -5,6 +5,7 @@ const mysql=require('mysql')
 require('dotenv').config()
 const app=express();
 
+
 const port=process.env.PORT||5000
 //to parser application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended:false}))
@@ -20,8 +21,14 @@ app.set('view engine','hbs')
 
 
 
+const userRoutes=require('./server/routes/user')
+const manufacturerRoutes=require('./server/routes/manufacturer')
 
-const routes=require('./server/routes/user')
-app.use('/',routes)
+const manufacturerAndProductRoutes=require('./server/routes/manufacturerAndProduct')
+
+app.use('/manufacturer',manufacturerRoutes)
+app.use('/manufacturerandproduct',manufacturerAndProductRoutes)
+app.use('/',userRoutes)
+
 
 app.listen(port,()=>console.log("Listening"))

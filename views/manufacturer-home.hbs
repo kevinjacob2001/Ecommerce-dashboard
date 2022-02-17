@@ -1,0 +1,40 @@
+<h1>Manufacturers' Section</h1>  <div class="d-flex justify-content-end">
+    <a href="/manufacturer/addmanufacturer" type="button" class="btn btn-primary align-self-right">Add</a>
+  </div>
+<table class="table">
+  <thead class="">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Manufacturer name:</th>
+      <th scope="col">Manufacturer location:</th>
+      <th scope="col">Manufacturer details:</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {{#each rows}}
+    <tr >
+      <th scope="row">{{this.manufacturer_id}}</th>
+      <td>{{this.manufacturer_name}}</td>
+      <td>{{this.manufacturer_location}}</td>
+      <td>{{this.manufacturer_details}}</td>
+
+
+      <!--
+      <td>
+        <a type="button" href="/inactive/{{this.id}}">Inactive</a>
+
+        </select></td>
+
+        -->
+
+
+      <td class="text-end">
+          <a href="#" type="button" class="btn btn-light btn-small btn-view">View</a>
+          <a href="#" type="button" class="btn btn-light btn-small btn-edit">Edit</a>
+          <a href="manufacturer/{{this.manufacturer_id}}" type="button" class="btn btn-light btn-small btn-delete">Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

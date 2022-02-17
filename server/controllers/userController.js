@@ -20,7 +20,7 @@ exports.view = (req, res) => {
                 res.render('home',{rows})
             }
             else console.log(err)
-console.log(rows)
+
         })
    
 }
@@ -46,7 +46,7 @@ exports.add = (req, res) => {
     })
   }
 
-  // delete product
+// delete product
 exports.delete = (req, res) => {
 
     // User the connection
