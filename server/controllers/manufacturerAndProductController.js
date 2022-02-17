@@ -10,8 +10,6 @@ let connection = mysql.createConnection({
 
 //View users
 exports.view = (req, res) => {
-
-
         connection.query("SELECT manufacturer.manufacturer_name AS manufacturer_name,user.product_name AS product_name, manufacturer.manufacturer_location AS manufacturer_location, manufacturer.manufacturer_details AS manufacturer_details FROM manufacturer  JOIN user ON user.product_manufacturer = manufacturer.manufacturer_name", (err, rows) => {
             //when donw with connection release it
         
