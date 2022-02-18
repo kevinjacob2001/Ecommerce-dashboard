@@ -32,7 +32,7 @@ exports.addProductsForm=(req,res)=>{
 
 // Add new product
 exports.add = (req, res) => {
-    const {id,product_name,product_manufacturer,product_quantity,product_category } = req.body;
+    const {product_name,product_manufacturer,product_quantity,product_category } = req.body;
 
     // User the connection
     connection.query('INSERT INTO user SET product_name = ?, product_manufacturer = ?, product_quantity = ?, product_category = ?', [product_name,product_manufacturer,product_quantity,product_category], (err, rows) => {
