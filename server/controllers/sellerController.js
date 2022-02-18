@@ -13,7 +13,7 @@ exports.view = (req, res) => {
 
     //cONNECT to DB_NAME
 
-        connection.query('SELECT * FROM sellers', (err, rows) => {
+        connection.query('SELECT * FROM seller', (err, rows) => {
             //when donw with connection release it
         
             if (!err) {
@@ -35,10 +35,10 @@ exports.addSellerForm = (req, res) => {
     const {seller_id,seller_name,seller_location,seller_year,seller_details } = req.body;
 
     // User the connection
-    connection.query('INSERT INTO sellers SET Name = ?, Location = ?, Est_Year = ?, Details = ?', [seller_name,seller_location,seller_year,seller_details], (err) => {
+    connection.query('INSERT INTO seller SET seller_name = ?, seller_location = ?, seller_year = ?, seller_details = ?', [seller_name,seller_location,seller_year,seller_details], (err) => {
       if (!err) {
         //res.redirect('/') 
-        connection.query('SELECT * FROM sellers', (err, rows) => {
+        connection.query('SELECT * FROM seller', (err, rows) => {
           if (!err) {
             res.redirect('/seller')
             return res.render('sellers-home', {rows});
@@ -55,9 +55,9 @@ exports.addSellerForm = (req, res) => {
 exports.delete = (req, res) => {
 
     // User the connection
-    connection.query('DELETE FROM sellers WHERE Id = ?', [req.params.id], (err) => {
+    connection.query('DELETE FROM seller WHERE seller_id = ?', [req.params.id], (err) => {
       if (!err) {
-        connection.query('Select * from sellers',(err,rows)=>{
+        connection.query('Select * from seller',(err,rows)=>{
           if(!err)
           {
             
