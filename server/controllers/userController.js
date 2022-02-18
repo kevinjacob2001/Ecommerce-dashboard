@@ -1,4 +1,5 @@
-const mysql = require('mysql')
+const mysql = require('mysql');
+const Pool = require('mysql/lib/Pool');
 
 //connection pool
 let connection = mysql.createConnection({
@@ -60,4 +61,63 @@ exports.delete = (req, res) => {
         console.log('The data from user table: \n', rows);
     })
   }
-  
+
+  // Edit product
+
+exports.edit = (req,res) => {
+    
+  connection.query(
+      "SELECT * FROM user WHERE id = ?",[req.params.id],(err, rows) => {
+        if (!err) {
+          res.render("editProducts", {rows});
+        } else {
+          console.log(err);
+        }
+        console.log("The data from user table: \n", rows);
+      }
+    );
+}
+
+// Update product 
+
+exports.update = (req, res) => {
+  const {
+    product_name,
+    product_manufacturer,
+    product_quantity,
+    product_category,
+  } = req.body;
+  // User the connection
+  connection.query(
+    "UPDATE user SET product_name = ?, product_manufacturer = ?, product_quantity = ?, product_category = ? WHERE id = ?",
+    [product_name,product_manufacturer,product_quantity,product_category,req.params.id,
+    ],
+    (err, rows) => {
+      if (!err) {
+        // User the connection
+        connection.query(
+          "SELECT * FROM user WHERE id = ?",
+          [req.params.id],
+          (err, rows) => {
+            // When done with the connection, release it
+
+            if (!err) {
+              res.redirect("/");
+              res.render("home", { rows });
+              
+            } else {
+              console.log(err);
+            }
+            console.log("The data from user table: \n", rows);
+          }
+        );
+      } else {
+        console.log(err);
+      }
+      console.log("The data from user table: \n", rows);
+    }
+  );
+};
+
+
+

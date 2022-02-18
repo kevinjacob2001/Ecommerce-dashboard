@@ -51,4 +51,57 @@ exports.add = (req, res) => {
         console.log('The data from manufacturer table: \n', rows);
     })
   }
-  
+
+  exports.edit = (req, res) => {
+    connection.query(
+      "SELECT * FROM manufacturer WHERE manufacturer_id = ?",
+      [req.params.manufacturer_id],
+      (err, rows) => {
+        if (!err) {
+          res.render("editManufacturers", { rows });
+        } else {
+          console.log(err);
+        }
+        console.log("The data from manufacturer table: \n", rows);
+      }
+    );
+  };
+
+  // Update manufacturer
+
+  exports.update = (req, res) => {
+    const { manufacturer_name, manufacturer_location, manufacturer_details } =
+      req.body;
+    // User the connection
+    connection.query(
+      "UPDATE manufacturer SET manufacturer_name = ?, manufacturer_location = ?, manufacturer_details = ? WHERE manufacturer_id = ?",
+      [
+        manufacturer_name,
+        manufacturer_location,
+        manufacturer_details,
+        req.params.manufacturer_id,
+      ],
+      (err, rows) => {
+        if (!err) {
+          // User the connection
+          connection.query(
+            "SELECT * FROM manufacturer WHERE manufacturer_id = ?",
+            [req.params.id],
+            (err, rows) => {
+              // When done with the connection, release it
+
+              if (!err) {
+                res.redirect("/manufacturer");
+                res.render("manufacturer-home", { rows });
+              } else {
+                console.log(err);
+              }
+              
+            }
+          );
+        } else {
+          console.log(err);
+        }
+      }
+    );
+  };
