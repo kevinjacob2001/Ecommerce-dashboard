@@ -25,10 +25,12 @@ const userRoutes=require('./server/routes/user')
 const manufacturerRoutes=require('./server/routes/manufacturer')
 const sellerRoutes=require('./server/routes/seller')
 const manufacturerAndProductRoutes=require('./server/routes/manufacturerAndProduct')
+const rawRoutes=require('./server/routes/rawMaterials')
 
 app.use('/manufacturer',manufacturerRoutes)
 app.use('/manufacturerandproduct',manufacturerAndProductRoutes)
 app.use('/seller',sellerRoutes)
+app.use('/rawMaterials',rawRoutes)
 app.use('/',userRoutes)
 
 
