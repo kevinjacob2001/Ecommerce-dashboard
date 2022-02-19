@@ -26,7 +26,7 @@ exports.addcategory = (req, res) => {
 };
 
 exports.addCategory = (req, res) => {
-  const { cat_id, Category, Details } = req.body;
+  const { Category, Details } = req.body;
 
   // User the connection
   connection.query(
