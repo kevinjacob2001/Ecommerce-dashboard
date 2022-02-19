@@ -70,4 +70,59 @@ exports.delete = (req, res) => {
       else console.log(err);
     })
   }
-  
+ 
+  // Edit sellers
+
+   exports.edit = (req, res) => {
+     connection.query(
+       "SELECT * FROM seller WHERE seller_id = ?",
+       [req.params.seller_id],
+       (err, rows) => {
+         if (!err) {
+           res.render("editSellers", { rows });
+         } else {
+           console.log(err);
+         }
+         console.log("The data from seller table: \n", rows);
+       }
+     );
+   };
+
+   // Update manufacturer
+
+   exports.update = (req, res) => {
+     const { seller_name, seller_location, seller_year, seller_details } =
+       req.body;
+     // User the connection
+     connection.query(
+       "UPDATE seller SET seller_name = ?, seller_location = ?, seller_year = ?, seller_details = ? WHERE seller_id = ?",
+       [
+         seller_name,
+         seller_location,
+         seller_year,
+         seller_details,
+         req.params.seller_id,
+       ],
+       (err, rows) => {
+         if (!err) {
+           // User the connection
+           connection.query(
+             "SELECT * FROM seller WHERE seller_id = ?",
+             [req.params.seller_id],
+             (err, rows) => {
+               // When done with the connection, release it
+
+               if (!err) {
+                 res.redirect("/seller");
+                 res.render("sellers-home", { rows });
+               } else {
+                 console.log(err);
+               }
+             }
+           );
+         } else {
+           console.log(err);
+         }
+       }
+     );
+   }; 

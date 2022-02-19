@@ -1,0 +1,13 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page"><a href="/">Go back Home</a></li>
+  </ol>
+</nav>
+
+<h3>Edit Seller</h3>
+
+{{#each rows}}
+<form class="row g-3" method="post" action="/seller/editSeller/{{this.seller_id}}" nonvalidate>
+    {{> seller-form}}
+</form>
+{{/each}}

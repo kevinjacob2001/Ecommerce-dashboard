@@ -7,6 +7,7 @@ const app=express();
 
 
 const port=process.env.PORT||5300
+
 //to parser application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended:false}))
 //to parse application/json

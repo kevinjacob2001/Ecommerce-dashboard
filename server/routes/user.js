@@ -6,6 +6,8 @@ const userController=require('../controllers/userController')
 router.get('/',userController.view);
 router.get('/add',userController.addProductsForm);
 router.post('/add',userController.add);
+router.get("/edit/:id", userController.edit);
+router.post("/edit/:id", userController.update);
 router.get('/:id',userController.delete);
 
 /*

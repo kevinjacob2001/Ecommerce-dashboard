@@ -4,8 +4,11 @@
   </ol>
 </nav>
 
-<form class="row g-3" method="post" action="/manufacturer/addmanufacturer">
+<h3>Edit Product</h3>
 
-  {{> manufacturer-form}}
-
+{{#each rows}}
+<form class="row g-3" method="post" action="/edit/{{this.id}}" nonvalidate>
+    {{> product-form}}
 </form>
+{{/each}}
+
