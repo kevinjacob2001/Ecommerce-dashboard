@@ -6,6 +6,8 @@ const sellerController=require('../controllers/sellerController')
 router.get('/',sellerController.view);
 router.get('/addSeller',sellerController.addSeller);
 router.post('/addSeller',sellerController.addSellerForm);
+router.get("/editSeller/:seller_id", sellerController.edit);
+router.post("/editSeller/:seller_id", sellerController.update);
 router.get('/:id',sellerController.delete);
 
 

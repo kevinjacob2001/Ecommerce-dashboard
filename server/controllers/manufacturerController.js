@@ -41,7 +41,7 @@ exports.add = (req, res) => {
   exports.delete = (req, res) => {
 
     // User the connection
-    connection.query('DELETE FROM manufacturer WHERE manufacturer_id = ?', [req.params.id], (err, rows) => {
+    connection.query('DELETE FROM manufacturer WHERE manufacturer_id = ?', [req.params.manufacturer_id], (err, rows) => {
       if (!err) {
         res.redirect('/manufacturer') 
         res.render('manufacturer-home', {rows});
@@ -86,7 +86,7 @@ exports.add = (req, res) => {
           // User the connection
           connection.query(
             "SELECT * FROM manufacturer WHERE manufacturer_id = ?",
-            [req.params.id],
+            [req.params.manufacturer_id],
             (err, rows) => {
               // When done with the connection, release it
 
@@ -96,7 +96,7 @@ exports.add = (req, res) => {
               } else {
                 console.log(err);
               }
-              
+              console.log("The data from manufacturer table: \n", rows);
             }
           );
         } else {

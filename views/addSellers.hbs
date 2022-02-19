@@ -6,35 +6,6 @@
 
 <form class="row g-3" method="post" action="/seller/addSeller">
 
-  <div class="col-6">
- 
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Seller Name" name="seller_name">
-        <label for="floatingInput">Seller Name</label>
-      </div>
-  </div>
-    <div class="col-6">
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Seller Location" name="seller_location">
-        <label for="floatingInput">Seller Location</label>
-      </div>
-    </div>
-
-     <div class="col-6">
-      <div class="form-floating mb-3">
-        <input type="number" class="form-control" id="floatingInput" placeholder="Established Year" name="seller_year">
-        <label for="floatingInput">Established Year</label>
-      </div>
-
-           <div class="col-6">
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Details" name="seller_details">
-        <label for="floatingInput">Seller Details</label>
-      </div>
-  </div>
-
-<div class="col-12 d-grid">
-  <button class="btn btn-primary" type="submit">Submit</button>
-</div>
+ {{> seller-form}}
 
 </form>
