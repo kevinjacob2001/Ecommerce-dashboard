@@ -16,7 +16,7 @@ exports.view = (req, res) => {
       //when donw with connection release it
 
       if (!err) {
-        res.render("category_rawMaterial-home", { rows });
+        res.render("category_product-home", { rows });
       }
     }
   );

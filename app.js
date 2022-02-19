@@ -27,14 +27,14 @@ const sellerRoutes=require('./server/routes/seller')
 const manufacturerAndProductRoutes=require('./server/routes/manufacturerAndProduct')
 const rawRoutes=require('./server/routes/rawMaterials')
 const categRoutes=require('./server/routes/category')
-const cat_rawRoutes = require('./server/routes/cat_rawmaterial.js')
+const cat_prodRoutes = require('./server/routes/cat_product.js')
 
 app.use('/manufacturer',manufacturerRoutes)
 app.use('/manufacturerandproduct',manufacturerAndProductRoutes)
 app.use('/seller',sellerRoutes)
 app.use('/rawMaterials',rawRoutes)
 app.use('/category',categRoutes)
-app.use('/cat_raw',cat_rawRoutes)
+app.use('/cat_prod',cat_prodRoutes)
 app.use('/',userRoutes)
 
 
