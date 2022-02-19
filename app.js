@@ -6,7 +6,7 @@ require('dotenv').config()
 const app=express();
 
 
-const port=process.env.PORT||5000
+const port=process.env.PORT||4300
 //to parser application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended:false}))
 //to parse application/json
