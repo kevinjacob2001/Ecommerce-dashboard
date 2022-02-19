@@ -19,7 +19,6 @@ exports.view = (req, res) => {
         })
 }
 
-
 exports.addManufacturerForm=(req,res)=>{
     res.render('addManufacturer');
 }

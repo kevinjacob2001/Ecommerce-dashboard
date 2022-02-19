@@ -6,7 +6,7 @@ require('dotenv').config()
 const app=express();
 
 
-const port=process.env.PORT||5000
+const port=process.env.PORT||5300
 //to parser application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended:false}))
 //to parse application/json
@@ -26,11 +26,15 @@ const manufacturerRoutes=require('./server/routes/manufacturer')
 const sellerRoutes=require('./server/routes/seller')
 const manufacturerAndProductRoutes=require('./server/routes/manufacturerAndProduct')
 const rawRoutes=require('./server/routes/rawMaterials')
+const categRoutes=require('./server/routes/category')
+const cat_prodRoutes = require('./server/routes/cat_product.js')
 
 app.use('/manufacturer',manufacturerRoutes)
 app.use('/manufacturerandproduct',manufacturerAndProductRoutes)
 app.use('/seller',sellerRoutes)
 app.use('/rawMaterials',rawRoutes)
+app.use('/category',categRoutes)
+app.use('/cat_prod',cat_prodRoutes)
 app.use('/',userRoutes)
 
 

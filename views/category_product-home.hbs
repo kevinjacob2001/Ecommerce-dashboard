@@ -1,0 +1,34 @@
+<h1>Product - Category Section</h1>  <div class="d-flex justify-content-end">
+  </div>
+<table class="table mt-3">
+  <thead class="">
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Category</th>
+      <th scope="col">Details</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+
+  {{#each rows}}
+    <tr >
+      <td>{{this.product_name}}</td>
+      <td>{{this.Category}}</td>
+      <td>{{this.Details}}</td>
+
+
+      <!--
+      <td>
+        <a type="button" href="/inactive/{{this.id}}">Inactive</a>
+
+        </select></td>
+
+        -->
+
+
+     
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
