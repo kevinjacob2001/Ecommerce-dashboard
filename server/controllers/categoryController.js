@@ -60,3 +60,57 @@ exports.delete = (req, res) => {
     } else console.log(err);
   });
 };
+
+// Edit sellers
+
+   exports.edit = (req, res) => {
+     connection.query(
+       "SELECT * FROM category WHERE cat_id = ?",
+       [req.params.cat_id],
+       (err, rows) => {
+         if (!err) {
+           res.render("editCategory", { rows });
+         } else {
+           console.log(err);
+         }
+         console.log("The data from category table: \n", rows);
+       }
+     );
+   };
+
+   // Update manufacturer
+
+   exports.update = (req, res) => {
+     const { Category, Details } =
+       req.body;
+     // User the connection
+     connection.query(
+       "UPDATE category SET Category = ?, Details = ? WHERE cat_id = ?",
+       [
+         Category,
+         Details,
+         req.params.cat_id,
+       ],
+       (err, rows) => {
+         if (!err) {
+           // User the connection
+           connection.query(
+             "SELECT * FROM category WHERE cat_id = ?",
+             [req.params.cat_id],
+             (err, rows) => {
+               // When done with the connection, release it
+
+               if (!err) {
+                 res.redirect("/category");
+                 res.render("category-home", { rows });
+               } else {
+                 console.log(err);
+               }
+             }
+           );
+         } else {
+           console.log(err);
+         }
+       }
+     );
+   }; 

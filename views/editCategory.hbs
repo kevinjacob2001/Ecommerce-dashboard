@@ -1,0 +1,15 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page"><a href="/">Go back Home</a></li>
+  </ol>
+</nav>
+
+<h3>Edit Category</h3>
+
+{{#each rows}}
+<form class="row g-3" method="post" action="/category/editcategory/{{this.cat_id}}" nonvalidate>
+
+    {{> category-form}}
+    
+</form>
+{{/each}}
