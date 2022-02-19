@@ -30,7 +30,7 @@ exports.addCategory = (req, res) => {
 
   // User the connection
   connection.query(
-    "INSERT INTO category SET Category = ?, Details = ?",
+    "INSERT INTO category SET Category = ?, Details= ?",
     [Category, Details],
     (err) => {
       if (!err) {
